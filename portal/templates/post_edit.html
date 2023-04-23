@@ -1,0 +1,21 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+{% load custom_tags %}
+
+{% block content %}
+
+ {% if post.categoryType == 'NW' %}
+    <h1> НОВОСТЬ </h1>
+ {% elif post.categoryType == 'AR' %}
+    <h2>  СТАТЬЯ </h2>
+{% endif %}
+
+<hr>
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Save" />
+</form>
+{% endblock content%}
+
